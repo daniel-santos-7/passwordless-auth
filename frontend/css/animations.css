@@ -1,0 +1,74 @@
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes move {
+    from {
+        opacity: 0;
+        transform: translateX(-35%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.fade-animation {
+    animation: fade 500ms;
+}
+
+.move-animation {
+    animation: move 500ms;
+    animation-fill-mode: backwards;
+}
+
+.animation-delay-150ms {
+    animation-delay: 150ms;
+}
+
+.animation-delay-250ms {
+    animation-delay: 250ms;
+}
+
+@keyframes squares {
+    0% {
+        transform: translateY(0px) scale(.7);
+        opacity: .2;
+    }
+
+    50% {
+        transform: translateY(-50vh) scale(1) rotate(180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(.7);
+        opacity: .2;
+    }
+}
+
+#background-squares-animation {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    z-index: -10;
+    overflow: hidden;
+}
+
+#background-squares-animation div {
+    animation-name: squares;
+    animation-duration: 15s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    position: relative;
+    background-color: rgba(255, 255, 255, .15);
+}
