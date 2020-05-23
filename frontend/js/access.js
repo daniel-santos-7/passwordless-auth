@@ -64,6 +64,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     };
 
+    const showSuccessfulAcessView = (name)=> {
+
+        const userNameLabel = document.querySelector('#user-name-label');
+
+        userNameLabel.textContent = name;
+
+        showView('successful-access');
+
+    };
+
+    const showFailureAcessView = ()=> { showView('failure-access') };
+
     if(urlParams.has('token')) {
 
         const loginToken = decodeURIComponent(urlParams.get('token'));
@@ -74,11 +86,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if(user) {
 
-            const userNameLabel = document.querySelector('#user-name-label');
+            localStorage.setItem('access-token',accessToken);
 
-            userNameLabel.textContent = user.name;
-
-            showView('successful-access');
+            showSuccessfulAcessView(user.name);
 
         } else {
 
@@ -88,9 +98,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     } else {
 
-        const showFailureAcessView = ()=> { showView('failure-access') };
+        const storedAccessToken = localStorage.getItem('access-token');
 
-        setTimeout(showFailureAcessView, 3000);
+        if(storedAccessToken) {
+
+            const user = await getUser(storedAccessToken);
+
+            if(user) {
+
+                showSuccessfulAcessView(user.name)
+    
+            } else {
+    
+                showView('failure-access');
+    
+            }
+
+        } else {
+
+            setTimeout(showFailureAcessView, 3000);
+        
+        }
 
     }
 
