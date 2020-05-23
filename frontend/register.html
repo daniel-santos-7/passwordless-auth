@@ -10,19 +10,20 @@
 <body>
     <div class="container fade-animation">
         <h1 class="title">Cadastro</h1>
-        <form>
+        <form id="register-form">
             <div class="input-group move-animation">
                 <label for="name">Nome completo:</label>
-                <input id="name" type="text" placeholder="Digite seu nome completo"/>
+                <input name="name" id="name" type="text" placeholder="Digite seu nome completo"/>
             </div>
             <div class="input-group move-animation animation-delay-150ms">
                 <label for="email">E-mail:</label>
-                <input id="email" type="email" placeholder="Digite um endereço de e-mail válido"/>
+                <input name="email" id="email" type="email" placeholder="Digite um endereço de e-mail válido"/>
             </div>
             <button type="submit" class="button move-animation animation-delay-250ms">Cadastrar</button>
         </form>
     </div>
     <div id="background-squares-animation"></div>
     <script src="js/animations.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>
