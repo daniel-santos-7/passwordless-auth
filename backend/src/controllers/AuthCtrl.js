@@ -38,6 +38,30 @@ module.exports = {
 
         }
 
+    }, 
+
+    async auth(req,res) {
+
+        try {
+
+            const { id, type } = req.jwt;
+
+            if(type !== 'login') {
+
+                return res.json({ message: 'already authenticated' });
+
+            }
+
+            const accessToken = jwt.sign({ id, type: 'access' }, process.env.JWT_SECRET, { expiresIn:'4h' });
+
+            return res.send({ accessToken });
+
+        } catch (err) {
+
+            return res.status(500).json({message:'server error occurred'});
+
+        }
+
     }
 
 }
