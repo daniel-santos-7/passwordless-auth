@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="css/animations.css"/>
 </head>
 <body>
-    <div class="container fade-animation">
+    <div class="container fade-animation" id="loading">
+        <h1 class="title">Carregando Informações...</h1>
+    </div>
+    <div class="container fade-animation hidden" id="failure-access">
         <h1 class="title">Acesso Restrito!</h1>
         <a href="login.html" class="button">Efetuar Login</a>
         <a href="register.html" class="button">Cadastrar</a>
     </div>
+    <div class="container fade-animation hidden" id="successful-access">
+        <h1 class="title">Seja Bem-vindo!</h1>
+        <h2 class="title" id="user-name-label">Nome do Usuário</h2>
+    </div>
     <div id="background-squares-animation"></div>
     <script src="js/animations.js"></script>
+    <script src="js/access.js"></script>
 </body>
 </html>
