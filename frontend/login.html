@@ -8,17 +8,22 @@
     <link rel="stylesheet" href="css/animations.css"/>
 </head>
 <body>
-    <div class="container fade-animation">
+    <div class="container fade-animation" id="login">
         <h1 class="title">Login</h1>
-        <form>
+        <form id="login-form">
             <div class="input-group move-animation">
                 <label for="email">E-mail:</label>
-                <input id="email" type="email" placeholder="Digite seu e-mail de acesso" class="form-input"/>
+                <input name="email" id="email" type="email" placeholder="Digite seu e-mail de acesso" class="form-input"/>
             </div>
             <button type="submit" class="button move-animation animation-delay-150ms">Entrar</button>
         </form>
     </div>
+    <div class="container fade-animation hidden" id="successful-login">
+        <h1 class="title">Sucesso!</h1>
+        <p class="title">Um link de acesso foi encaminhado para o seu endereço de e-mail.</p>
+    </div>
     <div id="background-squares-animation"></div>
     <script src="js/animations.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
