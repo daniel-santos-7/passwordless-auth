@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const views = document.querySelectorAll('#loading, #failure-access, #successful-access');
 
+    const logoutButton = document.querySelector('#logout-button');
+
     const showView = (viewId)=> { 
 
         views.forEach(view=> {
@@ -121,5 +123,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
     }
+
+    logoutButton.addEventListener('click', (event)=> {
+
+        event.preventDefault();
+
+        localStorage.removeItem('access-token');
+
+        location.reload();
+
+    });
 
 });
