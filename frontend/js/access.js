@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         localStorage.removeItem('access-token');
 
-        location.reload();
+        location.replace('/');
 
     });
 
