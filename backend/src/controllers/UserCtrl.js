@@ -6,9 +6,15 @@ module.exports = {
         
         try {
 
-            const { id } = req.params;
+            const { id, type } = req.jwt;
 
-            const user = await db('users').where('id',id);
+            if(type === 'login') {
+
+                return res.status(303).json({message: 'get an access token'});
+
+            }
+
+            const user = await db('users').where('id',id).first();
 
             if(!user) {
 
@@ -20,7 +26,7 @@ module.exports = {
         
         } catch(err) {
 
-            return res.status(500).json({message:'server error occurred'})
+            return res.status(500).json({message:'server error occurred'});
 
         }
 
